@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    list-style: none;
+    font-family: 微软雅黑;
+    text-decoration: none;
+    color: #ccc;  
+}
+.banxin {
+    margin-left: 45px;
+}
+.biaoti {
+    font-size: 20px;
+    color:#333;
+    font-weight: 500;
+    margin-top: 45px;
+    border-bottom: 2px solid #c20c0c;
+}
+body {
+    background-color: #f5f5f5;
+}
+.nav {
+    height: 70px;
+    width: 100%;
+    background-color: #242424;
+    border-bottom: 5px solid #c20c0c;
+    padding: 0px 200px;
+    position: relative;
+}
+/* 问题一：解决logo和nav一起掉下来 给logo设置padding 而不是里面图片给margin 设置了行高*/
+
+.logo {
+    padding: 17px 0;
+    width: 162px;
+    float: left;
+}
+.logo a {
+    background: url(./images/topbar.png) no-repeat 0px -19px;
+    width: 100%;
+    height: 36px;
+    display: inline-block;
+}
+
+.nav ul {
+    height: 65px;
+    float: left;
+    padding-left: 20px;
+}
+.nav ul li {
+    font-size: 14px;
+    float: left;
+    line-height: 65px;
+    height: 65px;
+}
+.nav ul li a {
+    display: inline-block;
+    padding: 0 20px;
+    height: 100%;
+}
+/* 问题二：a充满li，li不能设置padding，给a设置 */
+.nav ul li a:hover {
+    color:#fff;
+    background-color: #040404;
+}
+.hot {
+    position: absolute;
+    background: url(./images/topbar.png) no-repeat -192px 0;
+    left: 890px;
+    top: 20px;
+    height: 14px;
+    width: 28px;
+}
+#search {
+   width: 160px;
+   height: 34px;
+   margin: 16px 0 18px 80px; 
+   border-radius: 40px;
+   outline: none;
+   border: 0px;  
+   padding-left: 28px; 
+
+}
+input::-webkit-input-placeholder {
+    color: #9B9B9B;
+    font-size: 12px;
+    /* text-align: right; */
+    }
+#fdj {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    left: 990px;
+    top: 23px;
+}
+/* 问题三：定位浮动混乱 */
+.creator {
+    height: 34px;
+    width: 95px;
+    color: #ccccc1;
+    border: 1px solid #2F2F2F;
+    font-size: 12px;
+    border-radius: 30px;
+    margin: 16px 0 18px 18px; 
+    line-height: 34px;
+    text-align: center;
+    position: absolute;
+}
+.creator:hover {
+    border: 1px solid #fff;
+    color: #fff;
+}
+.myavatar {
+    border-radius: 50%;
+    position: absolute;
+    left: 1270px;
+    top: 17px;
+}
+#daosanjiao {
+    position: absolute;
+    left: 1307px;
+    top: 27px;
+    font-size: 12px;
+}
+.mian {
+    width: 980px;
+    background-color: #fff;
+    border-left: 1px solid #D3D3D3;
+    border-right: 1px solid #D3D3D3;
+    margin: 0 auto;
+    height: 2000px;
+    /* 临时高度 */
+}
+/* 小小鹅头像顶部 */
+.header {
+    height: 270px;
+    padding: 45px;
+}
+.xxe {
+    height: 190px;
+    width: 190px;
+    border: 1px solid #D5D5D5;
+    padding: 3px;
+    float: left;
+}
+.xxe img {
+    display: block;    
+}
+.wenzi {
+    height: 190px;
+    width: 695px;
+    float: right;
+    padding: 4px 40px 0 40px;
+}
+.toubu {
+    height: 30px;
+}
+.name {
+    font-size: 22px;
+    color: #040404;
+    font-weight: 500;
+}
+.toubu>img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 25px;
+    width: 85px;
+}
+.fasixin,.huguan{
+    display: inline-block;
+    width: 75px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.toubu.huguan {
+    width: 80px;
+}
+.wenzi hr {
+    margin-top:15px;
+    background-color: #D5D5D5;
+    height: 1px;
+    border: none;
+}
+.fensi {
+    height: 60px;
+    width: 695px;
+}
+.fensi ul {
+    overflow: hidden;
+}
+.fensi ul li{
+    float: left;
+    width: 85px;
+    border-right: 1px solid #D5D5D5;
+    padding-right: 42px;
+    margin-top: 10px;
+}
+#pianren strong {
+    font-size: 24px;
+    color: #666;
+    font-weight: 500;
+}
+#pianren span {
+    color: #777;
+    font-size: 12px;
+}
+.fensi ul li:nth-child(2),
+.fensi ul li:nth-child(3) {
+    padding-left: 20px;
+    padding-right: 30px;    
+}
+.fensi ul li:nth-child(3) {
+    border-right: 0px;
+}
+/* 问题：这里不能同时修改颜色 */
+#pianren strong:hover,
+#pianren span:hover {
+    color: skyblue;
+}
+.fensi p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 15px;
+}
+.paihang {
+    width: 900px;
+    height: 435px;
+    background: url(./images/paihang.PNG) no-repeat;
+    background-size: 100%;
+    margin: 0 45px;
+}
+.gedan {
+    width: 895px;
+    height: 30px;
+}
+.gedan ul li {
+    width: 135px;
+    height: 195px;
+    padding-top: 20px; 
+    float: left;
+    margin-left: 50px;
+}
+.gedan ul li:first-child,
+.gedan ul li:nth-child(6) {
+    margin-left: 0;
+}
+.gedan ul li a {
+    font-size: 14px;
+    color: #000;
+}
+.gedan ul li a:hover {
+    text-decoration: underline;
+}
+.shoucang {
+    margin-top: 430px;
+}
