@@ -2,11 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing:border-box;
-    list-style: none;
     font-family: 微软雅黑;
     text-decoration: none;
     color: #ccc;  
+    list-style: none;
+
 }
+
 .banxin {
     margin-left: 45px;
 }
@@ -218,7 +220,7 @@ input::-webkit-input-placeholder {
 /* 问题：这里不能同时修改颜色 */
 #pianren strong:hover,
 #pianren span:hover {
-    color: skyblue;
+    color: #4673c2;
 }
 .fensi p {
     font-size: 12px;
@@ -228,10 +230,50 @@ input::-webkit-input-placeholder {
 .paihang {
     width: 900px;
     height: 435px;
-    background: url(./images/paihang.PNG) no-repeat;
-    background-size: 100%;
+    /* background: url(./images/paihang.PNG) no-repeat;
+    background-size: 100%; */
     margin: 0 45px;
 }
+.paihang ol li {
+    height: 40px;
+    line-height: 40px;
+    background-color: #f7f7f7;
+    padding-left: 30px;
+
+}
+
+.paihang ol li:nth-child(odd) {
+    background-color: #fff;
+}
+.geming {
+    color: #000;
+    font-size: 12px;
+    font-weight: 550;
+}
+.geshou {
+    color: #ccc;
+    font-size: 12px;
+}
+.bofang {
+    display: inline-block;
+    width: 20px;
+    height: 22px;
+    background:url(images/table.png) no-repeat 0px -100px ;
+    margin-top: -3px;
+    vertical-align: middle;
+} 
+ol li a:hover {
+    text-decoration: underline;
+}
+
+.bofang:hover {
+    background:url(images/table.png) no-repeat 0px -125px ;
+
+}
+.paihang li:hover {
+    background-color: #eee !important;
+}
+
 .gedan {
     width: 895px;
     height: 30px;
@@ -256,4 +298,11 @@ input::-webkit-input-placeholder {
 }
 .shoucang {
     margin-top: 430px;
+}
+.leiji {
+    position: absolute;
+    color: #666;
+    font-size: 12px;
+    top:392px;
+    left: 408px;
 }
