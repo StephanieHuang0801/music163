@@ -27,11 +27,17 @@ body {
     width: 100%;
     background-color: #242424;
     border-bottom: 5px solid #c20c0c;
-    padding: 0px 200px;
-    position: relative;
+    /* padding: 0px 200px; */
+    /* 不应该在这里设置padding，不然宽度增加时，主体就被拉长 */
+    /* position: relative; */
 }
 /* 问题一：解决logo和nav一起掉下来 给logo设置padding 而不是里面图片给margin 设置了行高*/
-
+.zhuti {
+    height: 100%;
+    width: 1130px;
+    position: relative;
+    margin: 0 200px;
+}
 .logo {
     padding: 17px 0;
     width: 162px;
@@ -42,33 +48,34 @@ body {
     width: 100%;
     height: 36px;
     display: inline-block;
+    text-indent: -9999px;
 }
 
-.nav ul {
+.list1 {
     height: 65px;
     float: left;
     padding-left: 20px;
 }
-.nav ul li {
+.list1 li {
     font-size: 14px;
     float: left;
     line-height: 65px;
     height: 65px;
 }
-.nav ul li a {
+.list1 li a {
     display: inline-block;
     padding: 0 20px;
     height: 100%;
 }
 /* 问题二：a充满li，li不能设置padding，给a设置 */
-.nav ul li a:hover {
+.list1 li a:hover {
     color:#fff;
     background-color: #040404;
 }
 .hot {
     position: absolute;
     background: url(./images/topbar.png) no-repeat -192px 0;
-    left: 890px;
+    left: 695px;
     top: 20px;
     height: 14px;
     width: 28px;
@@ -81,6 +88,7 @@ body {
    outline: none;
    border: 0px;  
    padding-left: 28px; 
+   float: right;
 
 }
 input::-webkit-input-placeholder {
@@ -92,10 +100,10 @@ input::-webkit-input-placeholder {
     height: 30px;
     width: 30px;
     position: absolute;
-    left: 990px;
-    top: 23px;
+    left: 805px;
+    top: 24px;
 }
-/* 问题三：定位浮动混乱 */
+/* 问题三：定位浮动混乱:左半部分左浮动，右半部分右浮动 */
 .creator {
     height: 34px;
     width: 95px;
@@ -106,23 +114,49 @@ input::-webkit-input-placeholder {
     margin: 16px 0 18px 18px; 
     line-height: 34px;
     text-align: center;
-    position: absolute;
+    float: right;
+    /* position: absolute; */
 }
 .creator:hover {
     border: 1px solid #fff;
     color: #fff;
 }
+/* 问题：浮动以后，模式转换为行内块，怎么垂直居中？ */
+/* 将图片和倒三角用div包起来，设置高 */
+/* 不好设置宽，因为用图片margin和创作者中心隔开，设置宽不好布局 */
+/* 一个左浮动，一个右浮动，用div的padding把img压下来，用span的行高调整垂直居中 */
+.touxiang {
+    float: right;
+    /* width: 45px;     */
+    height: 70px;
+    padding: 18px 0;
+
+}
 .myavatar {
     border-radius: 50%;
-    position: absolute;
+    float: left;
+    margin-left: 10px;
+    /* position: absolute;
     left: 1270px;
-    top: 17px;
+    top: 17px; */
 }
 #daosanjiao {
-    position: absolute;
-    left: 1307px;
-    top: 27px;
+    /* position: absolute;
+    left: 1307px; */
+    /* top: 27px; */
+    line-height: 36px;
     font-size: 12px;
+    float: right;
+    padding-left :5px;
+}
+/* 个人信息的展示用了js？？ */
+.list {
+    width: 158px;
+    position: absolute;
+    top: 50px;
+    left: 800px;
+    background-color: #2b2b2b;
+    /* 父亲是nav 这里按照网易的结构更好，定的位置才会相对主体   */
 }
 .mian {
     width: 980px;
@@ -130,7 +164,7 @@ input::-webkit-input-placeholder {
     border-left: 1px solid #D3D3D3;
     border-right: 1px solid #D3D3D3;
     margin: 0 auto;
-    height: 2000px;
+    height: 1500px;
     /* 临时高度 */
 }
 /* 小小鹅头像顶部 */
@@ -230,8 +264,6 @@ input::-webkit-input-placeholder {
 .paihang {
     width: 900px;
     height: 435px;
-    /* background: url(./images/paihang.PNG) no-repeat;
-    background-size: 100%; */
     margin: 0 45px;
 }
 .paihang ol li {
@@ -305,4 +337,29 @@ ol li a:hover {
     font-size: 12px;
     top:392px;
     left: 408px;
+}
+.beian a {
+    text-decoration: none;
+    height: 20px;
+    line-height: 20px;
+    color: #939393;
+    font-size: 12px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+.beian1 a {
+    text-decoration: none;
+    height: 20px;
+    line-height: 20px;
+    color: #939393;
+    font-size: 12px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+.perfect {
+    position: fixed;
+    top:660px;
+    left:10px;
 }

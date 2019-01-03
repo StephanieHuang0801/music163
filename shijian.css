@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    width: 1525px;
+    height: 710px;
+    border: 3px solid red;
+    position: relative;
+
+}
+#time {
+    width: 350px;
+    height: 80px;
+    /* border: 3px dotted blue; */
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    padding-left: 5px;
+}
+.yangzi {
+    height: 70px;
+    width: 30px;
+    display: inline-block;
+    border: 2px solid black;
+    margin: 3px 5px 5px 0;
+
+}
+.wenzi {
+    position: absolute;
+    width: 1525px;
+    height: 710px;
+    line-height: 710px;
+    font-size: 100px;
+    color:red;
+    text-align: center;
+
+}

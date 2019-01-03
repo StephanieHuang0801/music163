@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个傻子正在玩贪吃蛇</title>
+    <style>
+        .map {
+            width: 100%;
+            height: 720px;
+            position: relative;
+            background-color: #ccc;
+        }
+    </style>
+        <link rel="stylesheet" href="shijian.css">
+        <script src="shijian.js"></script>
+        <script src="common.js"></script>
+    
+</head>
+
+<body>
+    <div class="map"></div>
+    <div id="time">
+            <img id="img1"class="yangzi"src="" alt="">
+            <img id="img2"class="yangzi"src="" alt="">
+            <img id="img3"class="yangzi"src="shuzi/maohao.png" alt="">
+            <img id="img4"class="yangzi"src="" alt="">
+            <img id="img5"class="yangzi"src="" alt="">
+            <img id="img6"class="yangzi"src="shuzi/maohao.png" alt="">
+            <img id="img7"class="yangzi"src="" alt="">
+            <img id="img8"class="yangzi"src="" alt="">
+        </div>
+
+    <script src="food.js"></script>
+    <script src="snake.js"></script>
+    <script src="game.js"></script>
+    <script>
+        var game = new Game(document.querySelector(".map"));
+        game.init();
+    </script>
+</body>
+
+</html>
