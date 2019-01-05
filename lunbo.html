@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="index.css">
+    <base target="_blank" />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .lunbonav {
+            width: 100%;
+            background-color: #ccc;
+        }
+
+        .all {
+            width: 1115px;
+            height: 340px;
+            margin: 100px auto;
+            padding: 0 60px;
+            position: relative;
+        }
+
+        .screen {
+            width: 730px;
+            height: 340px;
+            overflow: hidden;
+            float: left;
+            position: relative;
+        }
+
+        .screen ul {
+            /* 这里宽度是展示图片6张+1*li宽度730 */
+            float: left;
+            width: 5110px;
+            left: 0;
+            position: absolute;
+        }
+
+        .screen ul li {
+            width: 730px;
+            height: 340px;
+            float: left;
+            list-style: none;
+        }
+
+        .screen li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #suoyin {
+            position: absolute;
+            bottom: 10px;
+            width: 730px;
+            height: 20px;
+            padding-left: 320px;
+            /* 问题：这里设置居中没效果 */
+            /* text-align: center; */
+
+        }
+
+        #suoyin a {
+            text-decoration: none;
+            height: 5px;
+            width: 5px;
+            float: left;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        #suoyin a.current {
+            background-color: #c20c0c;
+        }
+
+        .ad {
+            width: 255px;
+            height: 340px;
+            float: left;
+        }
+
+        .ad img {
+            width: 100%;
+            height: auto;
+        }
+
+        .arr span {
+            position: absolute;
+            width: 45px;
+            height: 66px;
+            left: 0;
+            top: 50%;
+            margin-top: -33px;
+            line-height: 66px;
+            text-align: center;
+            cursor: pointer;
+            font-family: "黑体";
+            color: #fff;
+            opacity: 0.3;
+            font-size: 50px;
+
+        }
+
+        .arr .right {
+            right: 0px;
+            left: auto;
+        }
+
+        .arr span:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="zhuti">
+            <h1 class="logo">
+                <a href="https://music.163.com/">网易云音乐</a>
+                <!-- logo>a里要写内容，才能被SEO检索 -->
+
+                <!-- 1.3修改的内容 -->
+
+            </h1>
+            <ul class="list1">
+                <li>
+                    <a href="./lunbo.html">发现音乐</a>
+                </li>
+                <li>
+                    <a href="#">我的音乐</a>
+                </li>
+                <li>
+                    <a href="#">朋友</a>
+                </li>
+                <li>
+                    <a href="#">商城</a>
+                </li>
+                <li>
+                    <a href="#">音乐人</a>
+                </li>
+                <li>
+                    <a href="#">下载客户端</a>
+                    <div class="hot"></div>
+                </li>
+
+            </ul>
+
+            <span id="fdj" class="iconfont icon-fangdajing"></span>
+            <div class="touxiang">
+                <img src="./images/avatar.PNG" alt="用户头像" width="30" height="30" class="myavatar">
+                <span id="daosanjiao" class="iconfont icon-zelvxuanzefeiyongdaosanjiaoxingfandui"></span>
+                <div class="list" style="display: none;  ">
+                    <ul>
+                        <li>
+                            <a href="#">我的主页</a></li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+            <a href="https://music.163.com/st/creator#/" class="creator">创作者中心</a>
+            <input type="text" id="search" placeholder="音乐/视频/电台/用户">
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+    <div class="lunbonav">
+        <div class="all">
+            <!-- 相框 -->
+            <div class="screen">
+                <ul>
+                    <li><img src="./images/lunbo1.png" alt=""></li>
+                    <li><img src="./images/lunbo2.png" alt=""></li>
+                    <li><img src="./images/lunbo3.png" alt=""></li>
+                    <li><img src="./images/lunbo4.png" alt=""></li>
+                    <li><img src="./images/lunbo5.png" alt=""></li>
+                    <li><img src="./images/lunbo6.png" alt=""></li>
+                </ul>
+                <!-- 下标索引小圆点 -->
+                <div id="suoyin"></div>
+
+            </div>
+            <!-- 左右焦点 -->
+            <div class="arr">
+                <span class="left">&lt;</span>
+                <span class="right">&gt;</span>
+            </div>
+            <!-- 广告 -->
+            <div class="ad">
+                <img src="./images/ad.png" alt="">
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        //1.动态创建小圆点，添加自定义属性，根据属性移动相框,ul
+        var screen = document.getElementsByClassName("screen")[0].firstElementChild;
+        //console.log(screen);
+        var screenLi = screen.children;
+        // console.log(screen.children);
+        // 获取索引div
+        var pic = 0;
+        var imgWidth = screenLi[0].offsetWidth;
+        var suoyin = document.getElementById("suoyin");
+        for (var i = 0; i < screenLi.length; i++) {
+            var aObj = document.createElement("a");
+            suoyin.appendChild(aObj);
+            aObj.setAttribute("index", i);
+            aObj.onmouseover = function () {
+                //排他，移除所有索引样式
+                for (var j = 0; j < suoyin.children.length; j++) {
+                    suoyin.children[j].className = "";
+                }
+                this.className = "current";
+                pic = this.getAttribute("index");
+
+                animate(screen, -pic * imgWidth);
+            };
+        }
+        //2.初始化：第一个小圆点高亮，克隆封面，设置自动播放定时器
+        suoyin.children[0].className = "current";
+        screen.appendChild(screenLi[0].cloneNode(true));
+        var timeId = setInterval(clickHandle, 1500);
+        //3.写定时器回调函数,定时器要清理,移到相框上时(div),移出相框时，恢复定时器
+        document.getElementsByClassName("all")[0].onmouseover = function () {
+            clearInterval(timeId);
+        }
+        document.getElementsByClassName("all")[0].onmouseout = function () {
+            timeId = setInterval(clickHandle, 2000);
+        }
+
+        //6张图 下标从0-5 克隆元素下标6 克隆以后长度是7
+        //点击的时候，移动到了all上，自动清理了定时器
+        function clickHandle() {
+            if (pic == screenLi.length - 1) {
+                //归零：回到封面(pic归零)
+                suoyin.children[0].className = "current";
+                screen.style.left = "0px";
+                pic = 0;
+            }
+            //第一个索引高亮
+            //点击右箭头，pic自增，调用动画函数，索引样式相应改变(相框left的调整+pic的调整)
+            pic++;
+            animate(screen, -pic * imgWidth);
+            //超出第六张图后，来到第七张克隆的图，然而没有对应的索引
+            if (pic == screenLi.length - 1) {//索引[5]去除样式
+                suoyin.children[suoyin.children.length - 1].className = "";
+                suoyin.children[0].className = "current";
+            } else {
+                for (var j = 0; j < suoyin.children.length; j++) {
+                    suoyin.children[j].className = "";
+                }
+                suoyin.children[pic].className = "current";
+            }
+        }
+
+        //4.右击按钮调用回调函数
+        var right = document.getElementsByClassName("arr")[0].children[1];
+        var left = document.getElementsByClassName("arr")[0].children[0];
+        right.onclick = clickHandle;
+
+        //5.左击按钮修改
+        left.onclick = function () {
+            if (pic == 0) {
+                //立刻跳转到克隆元素，并将pic调整为最大6(相框left的调整+pic的调整)
+                pic = 6;
+                screen.style.left = -pic * imgWidth + "px";
+            }
+            pic--;
+            animate(screen, -pic * imgWidth);
+            // if(pic==0){//索引[0]去除样式
+            //     suoyin.children[suoyin.children.length-1].className="current";
+            //     suoyin.children[0].className="";
+            // }else {
+            //     for(var j=0;j<suoyin.children.length;j++){
+            //         suoyin.children[j].className="";
+            //     }
+            //     suoyin.children[pic].className="current";
+            // }
+            for (var j = 0; j < suoyin.children.length; j++) {
+                suoyin.children[j].className = "";
+            }
+            suoyin.children[pic].className = "current";
+
+
+        };
+
+        // 动画函数
+        function animate(ele, target) {
+            //第一步：清理定时器
+            clearInterval(ele.timeId);
+            ele.timeId = setInterval(function () {
+                var step = 10;
+                var current = ele.offsetLeft;
+                //第二步：根据现位置是否到达目标位置确定步数的正负值，没到就继续走
+                step = (target - current) > 0 ? step : -step;
+                current += step;
+                //第三步：判断现位置和目标位置的绝对值差与步数的大小
+                if (Math.abs(target - current) > Math.abs(step)) {
+                    ele.style.left = current + "px";
+                } else {
+                    clearInterval(ele.timeId);
+                    ele.style.left = target + "px";
+                }
+            }, 10);
+
+        }
+    </script>
+</body>
+
+</html>
