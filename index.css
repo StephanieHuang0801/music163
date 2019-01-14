@@ -36,7 +36,7 @@ body {
     height: 100%;
     width: 1130px;
     position: relative;
-    margin: 0 200px;
+    margin: 0 auto;
 }
 .logo {
     padding: 17px 0;
@@ -76,6 +76,22 @@ body {
     position: absolute;
     background: url(./images/topbar.png) no-repeat -192px 0;
     left: 695px;
+    top: 20px;
+    height: 14px;
+    width: 28px;
+}
+.hot1 {
+    position: absolute;
+    background: url(./images/topbar.png) no-repeat -226px 0;
+    left: 260px;
+    top: 20px;
+    height: 14px;
+    width: 28px;
+}
+.hot2 {
+    position: absolute;
+    background: url(./images/topbar.png) no-repeat -226px 0;
+    left: 360px;
     top: 20px;
     height: 14px;
     width: 28px;
